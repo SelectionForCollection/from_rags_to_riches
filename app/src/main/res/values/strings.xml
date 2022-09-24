@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="sex_choice">
+        <item>Рандомно</item>
+        <item>Мужчиной</item>
+        <item>Женщиной</item>
+    </string-array>
+    <string name="app_name">from_rags_to_riches</string>
+</resources>
