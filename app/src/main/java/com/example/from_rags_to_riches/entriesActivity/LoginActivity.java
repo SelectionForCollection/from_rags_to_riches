@@ -14,14 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.from_rags_to_riches.PlaygroundActivity;
 import com.example.from_rags_to_riches.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.Scanner;
 
 public class LoginActivity extends AppCompatActivity {
@@ -29,13 +24,12 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
 
     private String stringResponse;
-
     private class MyLoginThread implements Runnable{
 
         @Override
         public void run() {
             Log.e("Отслеживаю потоки", "поток " + Thread.currentThread() + Thread.currentThread().getName());
-            String loginUrl = "http://109.234.37.177:5000/login?nickname=" + nickname.getText().toString() + "&password=" + password.getText().toString();
+            String loginUrl = getString(R.string.server) + "login?nickname=" + nickname.getText().toString() + "&password=" + password.getText().toString();
             Looper.prepare();
             try {
                 URL obj = new URL(loginUrl);

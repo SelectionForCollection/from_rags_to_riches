@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         public void run() {
             Log.e("Отслеживаю потоки", "поток - " + Thread.currentThread() + Thread.currentThread().getName());
-            String registerUrl = "http://109.234.37.177:5000/register";
+            String registerUrl = getString(R.string.server) + "register";
             JSONObject register = new JSONObject();
             try {
                 register.put("nickname", nickname.getText().toString());
