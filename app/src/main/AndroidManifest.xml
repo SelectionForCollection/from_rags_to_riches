@@ -21,6 +21,9 @@
             android:name=".PlaygroundActivity"
             android:exported="false" />
         <activity
+            android:name=".rooms.Room2"
+            android:exported="false" />
+        <activity
             android:name=".entriesActivity.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">

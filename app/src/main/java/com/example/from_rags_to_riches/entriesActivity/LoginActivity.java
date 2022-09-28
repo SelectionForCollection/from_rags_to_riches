@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
 
     private String stringResponse;
+
     private class MyLoginThread implements Runnable{
 
         @Override
@@ -77,7 +78,9 @@ public class LoginActivity extends AppCompatActivity {
                     myThread.join();
                     Log.e("Отслеживаю потоки", "Мы снова в мэйне " + Thread.currentThread());
                 } catch (InterruptedException e) {
+                    System.out.println(e);
                 }
+
 
                 stringResponse = stringResponse.replaceAll("\n", "");
 
@@ -87,7 +90,9 @@ public class LoginActivity extends AppCompatActivity {
                         break;
 
                     case "\"correct data\"":
-                        startActivity(new Intent(LoginActivity.this, PlaygroundActivity.class));
+                        Intent loginIntent = new Intent(LoginActivity.this, PlaygroundActivity.class);
+                        loginIntent.putExtra("nickname", nickname.getText().toString());
+                        startActivity(loginIntent);
                         finish();
                         break;
                 }
